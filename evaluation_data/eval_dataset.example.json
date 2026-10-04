@@ -1,0 +1,8 @@
+[
+  {
+    "question": "What explanation did management give for the decline in Product B revenue?",
+    "expected_answer": "inventory shortages reduced Product B availability",
+    "expected_file": "Management_Report.pdf",
+    "expected_page": 12
+  }
+]

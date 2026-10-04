@@ -1,0 +1,20 @@
+[
+  {
+    "question": "What explanation did management give for the decline in Product B?",
+    "expected_answer": "inventory shortages delayed shipment supplier",
+    "expected_file": "Management_Report.pdf",
+    "expected_page": 3
+  },
+  {
+    "question": "What caused supply problems in the South region?",
+    "expected_answer": "warehouse delays Kochi distribution centre",
+    "expected_file": "Management_Report.pdf",
+    "expected_page": 4
+  },
+  {
+    "question": "What is the corrective action for Product B?",
+    "expected_answer": "second supplier safety stock",
+    "expected_file": "Management_Report.pdf",
+    "expected_page": 3
+  }
+]

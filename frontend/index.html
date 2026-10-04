@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AnalytIQ</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+      </span>
+      AnalytIQ
+    </div>
+    <button id="clearChat" class="ghost" type="button">New conversation</button>
+  </header>
+
+  <!-- Kept (hidden) so dashboard.js can still find them -->
+  <div id="status" data-state="checking" hidden><span class="dot"></span><span id="statusText"></span></div>
+  <input type="checkbox" id="debugToggle" hidden>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="Data workspace">
+      <h2>Your files</h2>
+      <ul id="docList" class="doc-list"></ul>
+      <p id="docEmpty" class="muted small">No files yet. Add a PDF report, CSV or Excel workbook to get started.</p>
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload files">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg>
+        <strong>Upload files</strong>
+        <span class="muted small">PDF, CSV or XLSX. Drop here or click.</span>
+        <input id="fileInput" type="file" multiple accept=".pdf,.csv,.xlsx,.txt,.md" hidden>
+      </div>
+      <ul id="uploadStatus" class="upload-status" aria-live="polite"></ul>
+    </aside>
+
+    <main class="main">
+      <section class="ask">
+        <h1>Ask your business data</h1>
+        <p class="lead muted">Get exact numbers from your tables and cited explanations from your documents.</p>
+        <form id="askForm" class="ask-form">
+          <textarea id="question" rows="2" maxlength="2000" aria-label="Your question"
+            placeholder="e.g. Which product had the largest revenue decline, and what did management say about it?"></textarea>
+          <button id="askBtn" class="primary" type="submit">Ask</button>
+        </form>
+        <div class="hint small muted">Suggested questions</div>
+        <div id="examples" class="examples"></div>
+      </section>
+
+      <section id="results" class="results" aria-live="polite"></section>
+
+      <section id="empty" class="empty">
+        <div class="tile">
+          <h3>Exact figures</h3>
+          <p>Totals, trends and comparisons are calculated from your tables.</p>
+        </div>
+        <div class="tile">
+          <h3>Cited answers</h3>
+          <p>Explanations come from your PDFs, with file name and page.</p>
+        </div>
+        <div class="tile">
+          <h3>Private</h3>
+          <p>Your files stay on this computer.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>
